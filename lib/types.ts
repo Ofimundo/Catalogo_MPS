@@ -43,26 +43,6 @@ export interface Marca {
   Activo: boolean
 }
 
-// Tipos para la tabla Salas
-export interface Salas {
-  ID_Sala: number
-  Tipo_Sala: string
-  Dimension_Sala: string
-}
-
-// Tipos para la tabla Salas_Equipos
-export interface Salas_Equipos {
-  ID_Sala: number
-  ID_Producto: number
-  // Campos adicionales para el JOIN con Salas
-  Tipo_Sala: string
-  Dimension_Sala: string
-  // Campos adicionales para el JOIN con Equipos
-  Nombre_Equipo: string
-  Tipo_Equipo: string
-  // Campos adicional traido por el JOIN de Equipo de la tabla Marca
-  Nombre_Marca?: string
-}
 
 // Tipos para filtros
 export interface FiltrosEquipo {
