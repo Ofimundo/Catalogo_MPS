@@ -9,11 +9,12 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ equipo, showBadge = false, badgeText = "DESTACADO" }: ProductCardProps) {
-  // Construir URL de imagen
   const imagenUrl = equipo.Imagen_Equipo 
     ? equipo.Imagen_Equipo.startsWith("http") 
       ? equipo.Imagen_Equipo 
-      : `/images/equipos/${equipo.Imagen_Equipo}`
+      : equipo.Imagen_Equipo.startsWith("/")
+        ? equipo.Imagen_Equipo
+        : `/images/equipos/${equipo.Imagen_Equipo}`
     : "/images/equipos/placeholder.png"
 
   return (
