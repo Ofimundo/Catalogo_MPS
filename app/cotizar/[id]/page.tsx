@@ -8,6 +8,7 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { getEquipoById } from "@/lib/data"
 import type { Equipo } from '@/lib/types'
+import { getImageUrl } from '@/lib/utils'
 
 
 export default function CotizarPage() {
@@ -221,7 +222,7 @@ export default function CotizarPage() {
                 <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center shrink-0 overflow-hidden">
                   {equipo.Imagen_Equipo ? (
                     <Image
-                      src={equipo.Imagen_Equipo}
+                      src={getImageUrl(equipo.Imagen_Equipo)}
                       alt={equipo.Nombre_Equipo}
                       width={80}
                       height={80}

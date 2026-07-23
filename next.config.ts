@@ -20,6 +20,14 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "*.cloudfront.net",
       },
+      {
+        protocol: "https",
+        hostname: "*.s3.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.s3.*.amazonaws.com",
+      },
     ],
   },
 };

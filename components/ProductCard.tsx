@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import type { Equipo } from "@/lib/types"
+import { getImageUrl } from "@/lib/utils"
 
 interface ProductCardProps {
   equipo: Equipo
@@ -9,13 +10,7 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ equipo, showBadge = false, badgeText = "DESTACADO" }: ProductCardProps) {
-  const imagenUrl = equipo.Imagen_Equipo 
-    ? equipo.Imagen_Equipo.startsWith("http") 
-      ? equipo.Imagen_Equipo 
-      : equipo.Imagen_Equipo.startsWith("/")
-        ? equipo.Imagen_Equipo
-        : `/images/equipos/${equipo.Imagen_Equipo}`
-    : "/images/equipos/placeholder.png"
+  const imagenUrl = getImageUrl(equipo.Imagen_Equipo)
 
   return (
     <div className="card-hover relative bg-white border border-gray-200 rounded-xl overflow-hidden flex flex-col">

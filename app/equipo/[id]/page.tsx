@@ -5,6 +5,7 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { getEquipoById } from "@/lib/data"
 import type { Equipo } from "@/lib/types"
+import { getImageUrl } from "@/lib/utils"
 
 interface PageProps {
   params: Promise<{ id: string }>
@@ -46,11 +47,7 @@ export default async function EquipoDetallePage({ params }: PageProps) {
     notFound()
   }
 
-  const imagenUrl = equipo.Imagen_Equipo
-    ? equipo.Imagen_Equipo.startsWith("http")
-      ? equipo.Imagen_Equipo
-      : equipo.Imagen_Equipo
-    : "/images/equipos/placeholder.png"
+  const imagenUrl = getImageUrl(equipo.Imagen_Equipo)
 
   return (
     <main className="min-h-screen bg-gray-50">
